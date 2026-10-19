@@ -1,6 +1,7 @@
-	#include <stdio.h>
 
-int main() {
+#include <stdio.h>
+
+int main(void) {
     int marks[5];
     int total = 0;
     float average;
@@ -10,10 +11,14 @@ int main() {
 
     for (i = 0; i < 5; i++) {
         printf("Enter mark for Subject %d (0-100): ", i + 1);
-        scanf("%d", &marks[i]);
+
+        if (scanf("%d", &marks[i]) != 1) {
+            printf("Invalid input. Enter numbers only.\n");
+            return 1;
+        }
 
         if (marks[i] < 0 || marks[i] > 100) {
-            printf("Invalid mark! Enter marks from 0 to 100.\n");
+            printf("Invalid mark! Enter a value from 0 to 100.\n");
             return 1;
         }
 
@@ -41,3 +46,4 @@ int main() {
 
     return 0;
 }
+
