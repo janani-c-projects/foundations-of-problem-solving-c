@@ -9,27 +9,31 @@ int main(void) {
 
     printf("===== STUDENT MARK AND GRADE CALCULATOR =====\n");
 
+    // Get marks for five subjects
     for (i = 0; i < 5; i++) {
         printf("Enter mark for Subject %d (0-100): ", i + 1);
 
         if (scanf("%d", &marks[i]) != 1) {
-            printf("Invalid input. Enter numbers only.\n");
+            printf("Invalid input! Please enter numbers only.\n");
             return 1;
         }
 
         if (marks[i] < 0 || marks[i] > 100) {
-            printf("Invalid mark! Enter a value from 0 to 100.\n");
+            printf("Invalid mark! Enter marks between 0 and 100.\n");
             return 1;
         }
 
         total = total + marks[i];
     }
 
+    // Calculate average
     average = total / 5.0;
 
+    // Display total and average
     printf("\nTotal Marks: %d / 500\n", total);
     printf("Average: %.2f\n", average);
 
+    // Calculate and display grade
     if (average >= 90) {
         printf("Grade: A+\n");
     } else if (average >= 80) {
@@ -46,4 +50,5 @@ int main(void) {
 
     return 0;
 }
+
 
